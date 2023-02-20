@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# Install Java
-sudo yum install java
+# Install necessary packages
+sudo dnf install -y java-11-openjdk-devel python3 python3-pip tar
+
+# Upgrade pip
+sudo pip3 install --upgrade pip
+
+# Install required Python packages
+sudo pip3 install numpy pandas scikit-learn tensorflow torch torchvision jupyterlab pyspark findspark
 
 # Download and extract Apache Spark
 curl -O https://downloads.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz
