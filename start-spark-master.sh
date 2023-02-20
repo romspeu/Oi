@@ -20,7 +20,12 @@ then
 fi
 
 # Find the Spark installation directory
-SPARK_DIR=$(dirname $(dirname $(which spark-submit)))
+if command -v which > /dev/null
+then
+  SPARK_DIR=$(dirname $(dirname $(which spark-submit)))
+else
+  SPARK_DIR=/path/to/spark
+fi
 
 # Set the path to Spark
 export PATH=$PATH:$SPARK_DIR/bin
