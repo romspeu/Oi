@@ -26,7 +26,7 @@ SPARK_DIR=$(dirname $(dirname $(which spark-submit)))
 export PATH=$PATH:$SPARK_DIR/bin
 
 # Start the Spark master
-start-spark-master.sh --ip $FIRST_SERVER_IP
+$SPARK_DIR/sbin/start-master.sh --ip $FIRST_SERVER_IP
 
 # Display the URL for accessing the Spark web UI
 echo "Spark master URL: http://$FIRST_SERVER_IP:8080"
