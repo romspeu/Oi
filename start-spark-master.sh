@@ -19,9 +19,14 @@ then
   exit 1
 fi
 
+# Find the Spark installation directory
+SPARK_DIR=$(dirname $(dirname $(which spark-submit)))
+
+# Set the path to Spark
+export PATH=$PATH:$SPARK_DIR/bin
+
 # Start the Spark master
-cd /path/to/spark-3.3.2-bin-hadoop3
-./sbin/start-master.sh --ip $FIRST_SERVER_IP
+start-master.sh --ip $FIRST_SERVER_IP
 
 # Display the URL for accessing the Spark web UI
 echo "Spark master URL: http://$FIRST_SERVER_IP:8080"
